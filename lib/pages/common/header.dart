@@ -12,15 +12,19 @@ Container(
   child: Row(
     children: [
       Expanded(
-          child:MenuItem(menuIcon: Icons.account_circle_rounded),
-        flex: 1,
+          child:InkWell(
+                child: MenuItem(menuIcon: Icons.account_circle_rounded),
+                focusColor: Colors.blue,
+          ),
+
+          flex: 1
       ),
       Expanded(child: MenuItem(menuText: "200"),
       flex:4
       ),
       Expanded(
         child: MenuItem(menuIcon:Icons.exit_to_app_rounded , menuText: "Exit") ,
-        flex: 1,
+        flex: 1
       ) ,
 
     ],
@@ -81,4 +85,5 @@ class MenuItem extends StatelessWidget {
       ),
     );
   }
+
 }
