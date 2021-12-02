@@ -1,13 +1,16 @@
 
 
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget headerDesign() =>
-    // #docregion Row
-Container(
-  alignment: Alignment.topCenter,
+class headerDesign extends StatelessWidget {
+  const headerDesign() : super();
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+  alignment: Alignment.topCenter,
   padding: new EdgeInsets.only(top: 30),
   child: Row(
     children: [
@@ -23,14 +26,17 @@ Container(
       flex:4
       ),
       Expanded(
-        child: MenuItem(menuIcon:Icons.exit_to_app_rounded , menuText: "Exit") ,
+      child: InkWell(
+              child:MenuItem(menuIcon:Icons.exit_to_app_rounded , menuText: "Exit") ,
+              onTap: (){}
+              ) ,
         flex: 1
       ) ,
-
     ],
   ),
 );
-
+  }
+}
 
 
 class MenuItem extends StatelessWidget {
@@ -43,7 +49,6 @@ class MenuItem extends StatelessWidget {
   final IconData menuIcon;
   final String menuText;
   final String menuImage;
-
 
   @override
   Widget build(BuildContext context) {
