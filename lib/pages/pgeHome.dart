@@ -11,6 +11,13 @@ class pgeHome extends StatefulWidget {
 }
 
 class pgeHomeState extends State<pgeHome> {
+
+  @override
+  void initState() {
+    print("Loading home pagg");
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
