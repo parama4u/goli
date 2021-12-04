@@ -1,21 +1,19 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Widget footerDesign() =>
     // #docregion Row
-Row(
-  children: [
-    Expanded(
-      child: FooterAdvert(),
-    ),
-  ],
-);
-
-
+    Row(
+      children: [
+        Expanded(
+          child: FooterAdvert(),
+        ),
+      ],
+    );
 
 class FooterAdvert extends StatelessWidget {
   const FooterAdvert();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,7 +30,6 @@ class FooterAdvert extends StatelessWidget {
           ),
         ],
       ),
-
       height: 100,
       width: 50,
       child: Row(

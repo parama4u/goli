@@ -1,16 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'menu_item.dart';
 
 final GlobalKey<_AvailGolis> golis = GlobalKey();
 
 class AvailGolis extends StatefulWidget {
   AvailGolis({Key key}) : super(key: key);
+
   @override
   _AvailGolis createState() {
-                    return _AvailGolis();
-                  }
+    return _AvailGolis();
+  }
 }
 
 class _AvailGolis extends State<AvailGolis> {

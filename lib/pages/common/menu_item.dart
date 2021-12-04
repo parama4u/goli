@@ -1,15 +1,11 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MenuItem extends StatelessWidget {
-  const MenuItem({
-    this.menuIcon = Icons.brightness_1_rounded,
-    this.menuText = '',
-    this.menuImage = 'img/goli-bg.png'
-  });
+  const MenuItem(
+      {this.menuIcon = Icons.brightness_1_rounded,
+      this.menuText = '',
+      this.menuImage = 'img/goli-bg.png'});
 
   final IconData menuIcon;
   final String menuText;
@@ -31,7 +27,6 @@ class MenuItem extends StatelessWidget {
           ),
         ],
       ),
-
       height: 50,
       width: 50,
       child: Row(
@@ -39,11 +34,9 @@ class MenuItem extends StatelessWidget {
         children: [
           Center(
               child: Icon(
-                menuIcon,
-                size:20,
-
-              )
-          ),
+            menuIcon,
+            size: 20,
+          )),
           Text(
             menuText,
             style: TextStyle(
@@ -56,4 +49,3 @@ class MenuItem extends StatelessWidget {
     );
   }
 }
-
