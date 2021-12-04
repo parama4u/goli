@@ -12,7 +12,7 @@ const List<Widget> children = [
 ];
 
 
-Widget genCards() {
+Widget genGames() {
   return Center(
     child: SingleChildScrollView(
       scrollDirection: Axis.horizontal,
