@@ -1,18 +1,14 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const List<Widget> children = [
-  Expanded(child:
-
-  ListTile(
+  Expanded(
+      child: ListTile(
     title: Text('Circa'),
-  )
-  )
+  ))
 ];
 
-
-Widget genCards() {
+Widget genGames() {
   return Center(
     child: SingleChildScrollView(
       scrollDirection: Axis.horizontal,
@@ -21,7 +17,6 @@ Widget genCards() {
           GameCard(gameColor: Colors.redAccent, gameName: 'Vatta'),
           GameCard(gameColor: Colors.brown, gameName: 'Bantha'),
           GameCard(gameColor: Colors.blueAccent, gameName: 'Kuli'),
-
         ],
       ),
     ),
@@ -62,19 +57,17 @@ class GameCard extends StatelessWidget {
         children: [
           Center(
               child: Icon(
-                Icons.icecream,
-                size: 100.0,
-                color: gameColor,
-              )),
+            Icons.icecream,
+            size: 100.0,
+            color: gameColor,
+          )),
           SizedBox(
             height: 20.0,
           ),
           Text(
             gameName,
             style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 24.0,
-                color: gameColor),
+                fontWeight: FontWeight.bold, fontSize: 24.0, color: gameColor),
           ),
         ],
       ),

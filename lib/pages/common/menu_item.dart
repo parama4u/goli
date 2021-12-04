@@ -1,24 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget footerDesign() =>
-    // #docregion Row
-    Row(
-      children: [
-        Expanded(
-          child: FooterAdvert(),
-        ),
-      ],
-    );
+class MenuItem extends StatelessWidget {
+  const MenuItem(
+      {this.menuIcon = Icons.brightness_1_rounded,
+      this.menuText = '',
+      this.menuImage = 'img/goli-bg.png'});
 
-class FooterAdvert extends StatelessWidget {
-  const FooterAdvert();
+  final IconData menuIcon;
+  final String menuText;
+  final String menuImage;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Color(0xffeeeeee), width: 4.0),
+        border: Border.all(color: Color(0xffeeeeee), width: 2.0),
         color: Colors.white38,
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
         boxShadow: [
@@ -26,21 +23,25 @@ class FooterAdvert extends StatelessWidget {
             color: Colors.white10,
             blurRadius: 4,
             spreadRadius: 2,
-            offset: Offset(0, 4),
+            offset: Offset(0, 2),
           ),
         ],
       ),
-      height: 100,
+      height: 50,
       width: 50,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          Center(
+              child: Icon(
+            menuIcon,
+            size: 20,
+          )),
           Text(
-            "Advert Here  ",
+            menuText,
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 15.0,
+                fontSize: 12.0,
                 color: Colors.black54),
           ),
         ],
