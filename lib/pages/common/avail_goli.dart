@@ -21,8 +21,11 @@ class _AvailGolis extends State<AvailGolis> {
   int _counter = 0;
   int _first_login;
   int _last_login;
+  int _last_claimed;
   int _cont_logins = 0;
   int _login_diff = 0;
+  int _claim_diff = 0;
+
 
 
   @override
@@ -39,12 +42,14 @@ class _AvailGolis extends State<AvailGolis> {
       _counter = (prefs.getInt('counter') ?? 0);
       _first_login = (prefs.getInt('first_login') ?? 0);
       _last_login = (prefs.getInt('last_login') ?? 0);
+      _last_claimed = (prefs.getInt('last_claimed') ?? 0);
       _cont_logins = (prefs.getInt('cont_logins') ?? 0);
       if (_first_login == 0){
         prefs.setInt('first_login', DateTime.now().millisecondsSinceEpoch);
       }
       prefs.setInt('last_login', DateTime.now().millisecondsSinceEpoch);
-      _login_diff = DateTime.now().difference(DateTime.fromMillisecondsSinceEpoch(_last_login)).inMinutes;
+      _login_diff = DateTime.now().difference(DateTime.fromMillisecondsSinceEpoch(_last_login)).inDays;
+      _claim_diff = DateTime.now().difference(DateTime.fromMillisecondsSinceEpoch(_last_claimed)).inDays;
       if (_login_diff == 1){
         // relogin in 1
         if (_cont_logins<7){
@@ -58,10 +63,15 @@ class _AvailGolis extends State<AvailGolis> {
       }
       else if (_login_diff > 1){
         // relogin after few
-        prefs.setInt('_cont_logins', 0);
+        prefs.setInt('cont_logins', 0);
       }
       print("Last: $_last_login , Diff: $_login_diff, Continuous: $_cont_logins");
-      incrementCounter(goli: _cont_logins);
+      if(_claim_diff>0)
+        {
+          incrementCounter(goli: _cont_logins);
+          prefs.setInt('last_claimed', DateTime.now().millisecondsSinceEpoch);
+        }
+
     });
   }
 
