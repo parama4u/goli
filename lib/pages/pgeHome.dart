@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:goli_dev/pages/common/avail_goli.dart';
 
 import 'common/footer.dart';
 import 'common/games.dart';
@@ -12,11 +13,7 @@ class pgeHome extends StatefulWidget {
 
 class pgeHomeState extends State<pgeHome> {
 
-  @override
-  void initState() {
-    print("Loading home pagg");
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {

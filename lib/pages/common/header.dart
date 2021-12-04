@@ -11,6 +11,11 @@ class headerDesign extends StatefulWidget {
 
 class headerDesignState extends State<headerDesign> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topCenter,
@@ -28,10 +33,10 @@ class headerDesignState extends State<headerDesign> {
                 child: AvailGolis(key: golis),
                 onTap: () {
                   // final _AvailGolis state = context.findAncestorStateOfType<_AvailGolis>();
-                  if (golis.currentState != null)
-                    golis.currentState.setState(() {
-                      golis.currentState.incrementCounter();
-                    });
+                  // if (golis.currentState != null)
+                  //   golis.currentState.setState(() {
+                  //     golis.currentState.incrementCounter();
+                  //   });
                 },
               ),
               flex: 4),
