@@ -8,6 +8,7 @@ import 'menu_item.dart';
 
 final GlobalKey<_AvailGolis> golis = GlobalKey();
 
+
 class AvailGolis extends StatefulWidget {
   AvailGolis({Key key}) : super(key: key);
 
@@ -19,9 +20,9 @@ class AvailGolis extends StatefulWidget {
 
 class _AvailGolis extends State<AvailGolis> {
   int _counter = 0;
-  int _first_login;
-  int _last_login;
-  int _last_claimed;
+  int _first_login = 0;
+  int _last_login = 0;
+  int _last_claimed =0;
   int _cont_logins = 0;
   int _login_diff = 0;
   int _claim_diff = 0;
