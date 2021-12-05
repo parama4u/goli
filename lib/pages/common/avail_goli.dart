@@ -39,7 +39,8 @@ class _AvailGolis extends State<AvailGolis> {
   void _loadCounter() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _counter = (prefs.getInt('counter') ?? 0);
+      //10 golies at first installation , need to update when account details added
+      _counter = (prefs.getInt('counter') ?? 10);
       _first_login = (prefs.getInt('first_login') ?? 0);
       _last_login = (prefs.getInt('last_login') ?? 0);
       _last_claimed = (prefs.getInt('last_claimed') ?? 0);

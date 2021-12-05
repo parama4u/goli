@@ -52,25 +52,28 @@ class GameCard extends StatelessWidget {
       margin: EdgeInsets.all(8),
       height: 200,
       width: 200,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-              child: Icon(
-            Icons.icecream,
-            size: 100.0,
-            color: gameColor,
-          )),
-          SizedBox(
-            height: 20.0,
-          ),
-          Text(
-            gameName,
-            style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 24.0, color: gameColor),
-          ),
-        ],
-      ),
+      child: InkWell(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+                child: Icon(
+                  Icons.icecream,
+                  size: 100.0,
+                  color: gameColor,
+                )),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              gameName,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 24.0, color: gameColor),
+            ),
+          ],
+        ),
+      )
+      
     );
   }
 }
