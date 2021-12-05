@@ -5,7 +5,7 @@ class MenuItem extends StatelessWidget {
   const MenuItem(
       {this.menuIcon = Icons.brightness_1_rounded,
       this.menuText = '',
-      this.menuImage = 'img/goli-bg.png'});
+      this.menuImage = 'assets/goli-bg.png'});
 
   final IconData menuIcon;
   final String menuText;

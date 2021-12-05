@@ -32,9 +32,13 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
 
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.9.0"
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -49,7 +53,13 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - img/goli-bg.png
+    - assets/goli-bg.png
+
+flutter_icons:
+  image_path: "assets/icons/goli.png"
+  android: true
+  ios: true
+
 
   # assets:
   #   - images/a_dot_burr.jpeg

@@ -3,27 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:goli_dev/pages/common/avail_goli.dart';
 
 import 'common/footer.dart';
-import 'common/games.dart';
+import 'common/comingsoon.dart';
 import 'common/header.dart';
 
-class pgeHome extends StatefulWidget {
+class pgeComingSoon extends StatefulWidget {
   @override
-  pgeHomeState createState() => pgeHomeState();
+  pgeComingSoonState createState() => pgeComingSoonState();
 }
 
-class pgeHomeState extends State<pgeHome> {
-
-
+class pgeComingSoonState extends State<pgeComingSoon> {
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      // crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(child: headerDesign()),
-        Container(child: genGames()),
+        Container(child: wip()),
         Container(
             transformAlignment: Alignment.bottomCenter, child: footerDesign()),
       ],
