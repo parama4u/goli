@@ -17,13 +17,13 @@ class MenuItem extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(color: Color(0xffeeeeee), width: 2.0),
         color: Colors.white38,
-        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        borderRadius: BorderRadius.all(Radius.circular(2.0)),
         boxShadow: [
           BoxShadow(
             color: Colors.white10,
-            blurRadius: 4,
-            spreadRadius: 2,
-            offset: Offset(0, 2),
+            blurRadius: 20,
+            spreadRadius: 20,
+            offset: Offset(0, 20),
           ),
         ],
       ),
@@ -35,7 +35,7 @@ class MenuItem extends StatelessWidget {
           Center(
               child: Icon(
             menuIcon,
-            size: 20,
+            size: 25,
           )),
           Text(
             menuText,

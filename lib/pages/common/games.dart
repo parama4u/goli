@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../pgeComingSoon.dart';
+import 'comingsoon.dart';
 
-const List<Widget> children = [
-  Expanded(
-      child: ListTile(
-    title: Text('Circa'),
-  ))
-];
+
 
 Widget genGames() {
   return Center(
@@ -53,6 +50,11 @@ class GameCard extends StatelessWidget {
       height: 200,
       width: 200,
       child: InkWell(
+        onTap: (){
+          Navigator.push(context, 
+          MaterialPageRoute(builder: (context) =>  pgeComingSoon()),
+          );
+        },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

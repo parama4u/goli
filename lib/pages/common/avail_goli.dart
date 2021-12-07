@@ -19,9 +19,9 @@ class AvailGolis extends StatefulWidget {
 
 class _AvailGolis extends State<AvailGolis> {
   int _counter = 0;
-  int _first_login;
-  int _last_login;
-  int _last_claimed;
+  int _first_login = 0;
+  int _last_login = 0;
+  int _last_claimed =0;
   int _cont_logins = 0;
   int _login_diff = 0;
   int _claim_diff = 0;
@@ -81,7 +81,6 @@ class _AvailGolis extends State<AvailGolis> {
     final prefs = await SharedPreferences.getInstance();
 
     setState(() {
-
       _counter = (prefs.getInt('counter') ?? 0) + goli;
       print("updated counter: $_counter");
       prefs.setInt('counter', _counter);

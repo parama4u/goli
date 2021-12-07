@@ -5,17 +5,14 @@
 import 'package:flutter/material.dart';
 import 'package:goli_dev/pages/pgeHome.dart';
 
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Test App",
-      home: Scaffold(
-          body: Center(
-        child: pgeHome(),
-      )),
-    );
+    return  pgeHome(); //,
+      // ),
+    // );
   }
 }

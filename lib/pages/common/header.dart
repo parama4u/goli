@@ -19,7 +19,7 @@ class headerDesignState extends State<headerDesign> {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topCenter,
-      padding: new EdgeInsets.only(top: 30),
+      padding: EdgeInsets.only(top: 30),
       child: Row(
         children: [
           Expanded(
@@ -27,19 +27,16 @@ class headerDesignState extends State<headerDesign> {
                 child: MenuItem(menuIcon: Icons.account_circle_rounded),
                 focusColor: Colors.blue,
               ),
-              flex: 1),
-          Expanded(
-              child: InkWell(
-                child: AvailGolis(key: golis),
-                onTap: () {
-                  // final _AvailGolis state = context.findAncestorStateOfType<_AvailGolis>();
-                  // if (golis.currentState != null)
-                  //   golis.currentState.setState(() {
-                  //     golis.currentState.incrementCounter();
-                  //   });
-                },
+              flex: 1
               ),
-              flex: 4),
+          Expanded(
+          child:
+          InkWell(
+                child:AvailGolis(),
+                onTap: () {},
+              ),
+              flex: 4
+          ),
           Expanded(
               child: InkWell(
                 child: MenuItem(
@@ -57,7 +54,6 @@ class headerDesignState extends State<headerDesign> {
                         child: const Text('Nah'),
                       ),
                       TextButton(
-                        // onPressed: () => Navigator.pop(context, 'OK'),
                         onPressed: () {
                           SystemNavigator.pop(animated: true);
                         },
@@ -67,7 +63,8 @@ class headerDesignState extends State<headerDesign> {
                   ),
                 ),
               ),
-              flex: 1),
+              flex: 1
+          ),
         ],
       ),
     );

@@ -15,16 +15,23 @@ class pgeComingSoonState extends State<pgeComingSoon> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      // crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
-      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(child: headerDesign()),
-        Container(child: wip()),
-        Container(
-            transformAlignment: Alignment.bottomCenter, child: footerDesign()),
-      ],
+    return  MaterialApp(
+      title: "Test App",
+      home: Scaffold(
+      body: Column(
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              // mainAxisSize: MainAxisSize.max,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(child: headerDesign()),
+                Container(child: wip()),
+                Container(
+                    transformAlignment: Alignment.bottomCenter, child: footerDesign()),
+              ],
+
+    )
+    )
     );
+
   }
 }
