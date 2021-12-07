@@ -9,11 +9,8 @@ const List<Widget> children = [
 ];
 
 Widget wip() {
-  return Center(
-    child:
-      Expanded(
-        child: Text ("Coming soon"),
-              )
+  return Expanded(
+    child: Text ("Coming soon"),
   );
 }
 // #enddocregion Card

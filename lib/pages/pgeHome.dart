@@ -17,8 +17,7 @@ class pgeHomeState extends State<pgeHome> {
 
   @override
   Widget build(BuildContext context) {
-    return new Expanded(
-      child: Column(
+    return  Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,7 +27,7 @@ class pgeHomeState extends State<pgeHome> {
         Container(
             transformAlignment: Alignment.bottomCenter, child: footerDesign()),
       ],
-      )
-    );
+      );
+
   }
 }
