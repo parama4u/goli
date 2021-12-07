@@ -54,6 +54,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/goli-bg.png
+    - assets/icons/wip.png
 
 flutter_icons:
   image_path: "assets/icons/goli.png"
@@ -61,9 +62,6 @@ flutter_icons:
   ios: true
 
 
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
