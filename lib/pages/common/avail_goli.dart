@@ -8,7 +8,6 @@ import 'menu_item.dart';
 
 final GlobalKey<_AvailGolis> golis = GlobalKey();
 
-
 class AvailGolis extends StatefulWidget {
   AvailGolis({Key key}) : super(key: key);
 
@@ -82,7 +81,6 @@ class _AvailGolis extends State<AvailGolis> {
     final prefs = await SharedPreferences.getInstance();
 
     setState(() {
-
       _counter = (prefs.getInt('counter') ?? 0) + goli;
       print("updated counter: $_counter");
       prefs.setInt('counter', _counter);

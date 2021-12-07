@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../pgeComingSoon.dart';
+import 'comingsoon.dart';
 
 const List<Widget> children = [
   Expanded(

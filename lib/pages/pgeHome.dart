@@ -17,17 +17,24 @@ class pgeHomeState extends State<pgeHome> {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return MaterialApp(
+      // title: "Test App",
+      home: Scaffold(
+      body: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.max,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Container(child: headerDesign()),
+        Container(child: headerDesign(),
+
+        ),
         Container(child: genGames()),
         Container(
             transformAlignment: Alignment.bottomCenter, child: footerDesign()),
       ],
-      );
+      )
+    )
+    );
 
   }
 }
