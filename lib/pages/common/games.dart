@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../pgeComingSoon.dart';
-import 'comingsoon.dart';
-
+import '../pgeVatta.dart';
 
 
 Widget genGames() {
@@ -11,9 +10,9 @@ Widget genGames() {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          GameCard(gameColor: Colors.redAccent, gameName: 'Vatta'),
-          GameCard(gameColor: Colors.brown, gameName: 'Bantha'),
-          GameCard(gameColor: Colors.blueAccent, gameName: 'Kuli'),
+          GameCard(gameColor: Colors.redAccent, gameName: 'Vatta', gameLoc: pgeVatta(),),
+          GameCard(gameColor: Colors.brown, gameName: 'Bantha', gameLoc: pgeComingSoon(),),
+          GameCard(gameColor: Colors.blueAccent, gameName: 'Kuli',gameLoc: pgeComingSoon(),),
         ],
       ),
     ),
@@ -25,10 +24,12 @@ class GameCard extends StatelessWidget {
   const GameCard({
     this.gameColor = Colors.redAccent,
     this.gameName = 'Game Name',
+    this.gameLoc  = null,
   });
 
   final Color gameColor;
   final String gameName;
+  final gameLoc;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,7 @@ class GameCard extends StatelessWidget {
       child: InkWell(
         onTap: (){
           Navigator.push(context, 
-          MaterialPageRoute(builder: (context) =>  pgeComingSoon()),
+          MaterialPageRoute(builder: (context) => gameLoc ),
           );
         },
         child: Column(

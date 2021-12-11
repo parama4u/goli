@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:goli_dev/pages/common/avail_goli.dart';
-
 import 'common/footer.dart';
 import 'common/comingsoon.dart';
 import 'common/header.dart';
@@ -19,9 +17,6 @@ class pgeComingSoonState extends State<pgeComingSoon> {
       title: "Test App",
       home: Scaffold(
       body: Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              // mainAxisSize: MainAxisSize.max,
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(child: headerDesign()),
                 Container(child: wip()),
