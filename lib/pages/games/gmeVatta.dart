@@ -15,7 +15,7 @@ class gmeVattaState extends State<gmeVatta> {
     return Stack(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       children: [
-        Positioned(child: Goli(), left: 0, top: 0, width: 400, height: 800,),
+
         //Background
         Positioned(
                 left: 0,
@@ -55,18 +55,29 @@ class gmeVattaState extends State<gmeVatta> {
                       indent: 30,
                       endIndent: 30,
                     ),
+                    FloatingActionButton(
+                        tooltip: "throw",
 
+                        onPressed: (){
+                                        // Goli()
+                                        GoliState().moveGoli();
+                                        print("Clicked");
+                                      },
+                        child: Icon(Icons.animation),
+
+                    )
 
                   ],
                 ),
         ),
-
+        Positioned(child: Goli(), left: 0, top: 0, width: 400, height: 800,),
       ],
     ) ;
   }
 }
 
 class Goli extends StatefulWidget {
+  Goli({Key key}) : super(key: key);
   @override
   GoliState createState() => GoliState();
 }
@@ -75,7 +86,7 @@ class GoliState extends State<Goli> {
 
   AlignmentGeometry alignment = Alignment.center;
   Duration animationDuration = Duration(milliseconds: 500);
-  Color color = Colors.deepOrange;
+  Color color = Colors.black;
   Curve animationCurve = Curves.easeInOutBack;
 
   AlignmentGeometry randomAlign() {
@@ -101,13 +112,25 @@ class GoliState extends State<Goli> {
     return intToColor[Random().nextInt(7)];
   }
 
+  void moveGoli() async {
+
+    setState(() {
+      alignment = randomAlign();
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    print("Initalizing");
+    moveGoli();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Container(
+        return Container(
           // color: Colors.blueAccent,
-          child: AnimatedAlign(
+          child: new AnimatedAlign(
             duration: animationDuration,
             curve: animationCurve,
             alignment: alignment,
@@ -115,7 +138,7 @@ class GoliState extends State<Goli> {
               onTap: () {
                 setState(() {
                   alignment = randomAlign();
-                  color = randomColor();
+                  // color = randomColor();
                 });
               },
               child: Card(
@@ -124,26 +147,20 @@ class GoliState extends State<Goli> {
                 child: AnimatedContainer(
                   curve: animationCurve,
                   duration: animationDuration,
-                  width: 80.0,
-                  height: 80.0,
+                  width: 30.0,
+                  height: 30.0,
                   decoration: BoxDecoration(
                     color: color,
                     shape: BoxShape.circle,
                   ),
-                  child: Center(
-                    child: Text('PRESS',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                        )),
+                  child: new Center(
+                    child: Text(' '),
+                    
                   ),
                 ),
               ),
             ),
           ),
-        ),
-      ),
     );
   }
 }
