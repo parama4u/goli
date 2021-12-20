@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'menu_item.dart';
 
-final GlobalKey<_AvailGolis> golis = GlobalKey();
+// final GlobalKey<_AvailGolis> golis = GlobalKey();
 
 class AvailGolis extends StatefulWidget {
   AvailGolis({Key key}) : super(key: key);
@@ -47,6 +47,7 @@ class _AvailGolis extends State<AvailGolis> {
       _cont_logins = (prefs.getInt('cont_logins') ?? 0);
       if (_first_login == 0){
         prefs.setInt('first_login', DateTime.now().millisecondsSinceEpoch);
+        incrementCounter(goli: _cont_logins);
       }
       prefs.setInt('last_login', DateTime.now().millisecondsSinceEpoch);
       _login_diff = DateTime.now().difference(DateTime.fromMillisecondsSinceEpoch(_last_login)).inDays;

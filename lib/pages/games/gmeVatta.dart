@@ -56,28 +56,42 @@ class gmeVattaState extends State<gmeVatta> {
                       endIndent: 30,
                     ),
                     FloatingActionButton(
-                        tooltip: "throw",
+                      tooltip: "throw",
 
-                        onPressed: (){
-                                        // Goli()
-                                        GoliState().moveGoli();
-                                        print("Clicked");
-                                      },
-                        child: Icon(Icons.animation),
+                      onPressed: (){
 
-                    )
+                        print("Clicked");
+                        setState(() {
+                          // GoliState().moveGoli();
+                        });
 
+                      },
+                      child: Icon(Icons.animation),
+                    ),
                   ],
                 ),
         ),
-        Positioned(child: Goli(), left: 0, top: 0, width: 400, height: 800,),
-      ],
+        Goli(),
+        // Positioned(child: Goli(), left: 0, top: 0, width: 400, height: 800,),
+
+    ],
     ) ;
   }
 }
 
+AlignmentGeometry randomAlign() {
+  Map boolToSign = {
+    true: 1,
+    false: -1,
+  };
+  double x = boolToSign[Random().nextBool()] * Random().nextDouble();
+  double y = boolToSign[Random().nextBool()] * Random().nextDouble();
+  return Alignment(x, y);
+}
+
+
 class Goli extends StatefulWidget {
-  Goli({Key key}) : super(key: key);
+  Goli({Key key  }) : super(key: key);
   @override
   GoliState createState() => GoliState();
 }
@@ -89,15 +103,6 @@ class GoliState extends State<Goli> {
   Color color = Colors.black;
   Curve animationCurve = Curves.easeInOutBack;
 
-  AlignmentGeometry randomAlign() {
-    Map boolToSign = {
-      true: 1,
-      false: -1,
-    };
-    double x = boolToSign[Random().nextBool()] * Random().nextDouble();
-    double y = boolToSign[Random().nextBool()] * Random().nextDouble();
-    return Alignment(x, y);
-  }
 
   Color randomColor() {
     Map intToColor = {
@@ -112,28 +117,19 @@ class GoliState extends State<Goli> {
     return intToColor[Random().nextInt(7)];
   }
 
-  void moveGoli() async {
 
-    setState(() {
-      alignment = randomAlign();
-    });
-  }
 
-  @override
-  void initState() {
-    super.initState();
-    print("Initalizing");
-    moveGoli();
-  }
 
   @override
   Widget build(BuildContext context) {
+        print("building");
+        final _loc = randomAlign();
         return Container(
           // color: Colors.blueAccent,
-          child: new AnimatedAlign(
+          child: AnimatedAlign(
             duration: animationDuration,
             curve: animationCurve,
-            alignment: alignment,
+            alignment: _loc,
             child: GestureDetector(
               onTap: () {
                 setState(() {
@@ -162,6 +158,25 @@ class GoliState extends State<Goli> {
             ),
           ),
     );
+  }
+
+  moveGoli()  {
+    // alignment = randomAlign();
+    print("try moving");
+    // super.initState();
+    //
+    // widget.alignment = randomAlign();
+    setState(() {
+      alignment = randomAlign();
+    });
+
+    @override
+    void initState(){
+      print("Initalizing");
+      super.initState();
+    }
+
+
   }
 }
 
