@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'menu_item.dart';
-
+import 'toast.dart';
 // final GlobalKey<_AvailGolis> golis = GlobalKey();
 
 class AvailGolis extends StatefulWidget {
@@ -68,6 +68,10 @@ class _AvailGolis extends State<AvailGolis> {
         prefs.setInt('cont_logins', 0);
       }
       print("Last: $_last_login , Diff: $_login_diff, Continuous: $_cont_logins");
+      final last_log_date = DateTime.fromMillisecondsSinceEpoch(_last_login).toString();
+      final _text = "Last: $last_log_date, Diff: $_login_diff, Continuous: $_cont_logins";
+      ShowToast(context, _text);
+
       if(_claim_diff>0)
         {
           incrementCounter(goli: _cont_logins);
@@ -84,12 +88,14 @@ class _AvailGolis extends State<AvailGolis> {
     setState(() {
       _counter = (prefs.getInt('counter') ?? 0) + goli;
       print("updated counter: $_counter");
+      ShowToast(context, "Awarded new golies: $_counter");
       prefs.setInt('counter', _counter);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
     return MenuItem(menuText: '$_counter');
   }
 }

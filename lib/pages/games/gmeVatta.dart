@@ -32,10 +32,20 @@ class gmeVattaState extends State<gmeVatta> {
                     ),
                     //gameplace
                     Container(
+                      clipBehavior: Clip.antiAlias ,
+                      child: Stack(
+                        // clipBehavior: Clip.antiAliasWithSaveLayer,
+                        children: [
+                          Goli(myname:"goli1"),
+                          Goli(myname:"goli2"),
+                          Goli(myname:"goli3"),
+                          Goli(myname:"goli4")
+                        ],
+                      ),
                       width: 350.0,
                       height: 350.0,
                       alignment: Alignment.center,
-                      margin: EdgeInsets.only(left: 20),
+                      margin: EdgeInsets.only(left: 10),
                       decoration:  BoxDecoration(
                         color: Colors.orange,
                         shape: BoxShape.circle,
@@ -59,10 +69,9 @@ class gmeVattaState extends State<gmeVatta> {
                       tooltip: "throw",
 
                       onPressed: (){
-
                         print("Clicked");
                         setState(() {
-                          // GoliState().moveGoli();
+
                         });
 
                       },
@@ -71,8 +80,6 @@ class gmeVattaState extends State<gmeVatta> {
                   ],
                 ),
         ),
-        Goli(),
-        // Positioned(child: Goli(), left: 0, top: 0, width: 400, height: 800,),
 
     ],
     ) ;
@@ -89,9 +96,23 @@ AlignmentGeometry randomAlign() {
   return Alignment(x, y);
 }
 
+Color randomColor() {
+  Map intToColor = {
+    0: Colors.deepOrange,
+    1: Colors.black,
+    2: Colors.deepPurple,
+    3: Colors.pink,
+    4: Colors.teal,
+    5: Colors.green[800],
+    6: Colors.blueAccent,
+  };
+  return intToColor[Random().nextInt(7)];
+
+}
 
 class Goli extends StatefulWidget {
-  Goli({Key key  }) : super(key: key);
+  String myname="";
+  Goli({Key key,String this.myname}) : super(key: key);
   @override
   GoliState createState() => GoliState();
 }
@@ -103,30 +124,12 @@ class GoliState extends State<Goli> {
   Color color = Colors.black;
   Curve animationCurve = Curves.easeInOutBack;
 
-
-  Color randomColor() {
-    Map intToColor = {
-      0: Colors.deepOrange,
-      1: Colors.black,
-      2: Colors.deepPurple,
-      3: Colors.pink,
-      4: Colors.teal,
-      5: Colors.green[800],
-      6: Colors.blueAccent,
-    };
-    return intToColor[Random().nextInt(7)];
-  }
-
-
-
-
   @override
   Widget build(BuildContext context) {
-        print("building");
         final _loc = randomAlign();
+        final _color = randomColor();
         return Container(
-          // color: Colors.blueAccent,
-          child: AnimatedAlign(
+          child:  AnimatedAlign(
             duration: animationDuration,
             curve: animationCurve,
             alignment: _loc,
@@ -134,10 +137,10 @@ class GoliState extends State<Goli> {
               onTap: () {
                 setState(() {
                   alignment = randomAlign();
-                  // color = randomColor();
+                  color = randomColor();
                 });
               },
-              child: Card(
+              child:  Card(
                 elevation: 10.0,
                 shape: CircleBorder(),
                 child: AnimatedContainer(
@@ -146,13 +149,13 @@ class GoliState extends State<Goli> {
                   width: 30.0,
                   height: 30.0,
                   decoration: BoxDecoration(
-                    color: color,
+                    color: _color,
                     shape: BoxShape.circle,
+
                   ),
-                  child: new Center(
-                    child: Text(' '),
-                    
-                  ),
+                  child:  Center(
+                    child: Text(widget.myname.replaceAll('goli', '')),
+                    ),
                 ),
               ),
             ),
@@ -160,24 +163,9 @@ class GoliState extends State<Goli> {
     );
   }
 
-  moveGoli()  {
-    // alignment = randomAlign();
-    print("try moving");
-    // super.initState();
-    //
-    // widget.alignment = randomAlign();
-    setState(() {
-      alignment = randomAlign();
-    });
-
-    @override
-    void initState(){
-      print("Initalizing");
-      super.initState();
-    }
 
 
   }
-}
+
 
 
